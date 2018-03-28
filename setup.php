@@ -35,22 +35,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $config['DB_HOST'] = test_input($_POST["name"]);
     }
     
-    if (empty($_POST["email"])) {
-        $emailErr = "Email is required";
+    if (empty($_POST["DB_USERNAME"])) {
+        $DB_USERNAMEErr = "Username is required";
     } else {
-        $config['DB_USERNAME'] = test_input($_POST["email"]);
+        $config['DB_USERNAME'] = test_input($_POST["DB_USERNAME"]);
     }
     
-    if (empty($_POST["website"])) {
+    if (empty($_POST["DB_PASSWORD"])) {
         $config['DB_PASSWORD'] = "";
     } else {
-        $config['DB_PASSWORD'] = test_input($_POST["website"]);
+        $config['DB_PASSWORD'] = test_input($_POST["DB_PASSWORD"]);
     }
     
-    if (empty($_POST["comment"])) {
+    if (empty($_POST["DB_DATABASE"])) {
         $config['DB_DATABASE'] = "";
     } else {
-        $config['DB_DATABASE'] = test_input($_POST["comment"]);
+        $config['DB_DATABASE'] = test_input($_POST["DB_DATABASE"]);
     }
     //file_put_contents('config.php', '$config = ' . var_export($config));
     file_put_contents('config.php', '<?php return ' . var_export($config, true) . ';');
@@ -78,21 +78,21 @@ echo $servername;
 echo $servernameErr;
 ?></span>
   <br><br>
-  Username: <input type="text" name="email" value="<?php
+  Username: <input type="text" name="DB_USERNAME" value="<?php
 echo $username;
 ?>">
   <span class="error">* <?php
 echo $usernameErr;
 ?></span>
   <br><br>
-  Password: <input type="text" name="website" value="<?php
+  Password: <input type="text" name="DB_PASSWORD" value="<?php
 echo $password;
 ?>">
   <span class="error"><?php
 echo $passwordErr;
 ?></span>
   <br><br>
-  Database: <input type="text" name="comment" value="<?php
+  Database: <input type="text" name="DB_DATABASE" value="<?php
 echo $dbname;
 ?>">
   <span class="error">*<?php
