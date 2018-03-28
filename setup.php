@@ -108,5 +108,10 @@ echo $dbnameErr;
 <div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
 <a href="add.php" class="w3-button w3-indigo">Add a record</a>
 </div>
+
+<div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
+<a href="delete.php" class="w3-button w3-indigo">Delete record</a>
+</div>
+
 </body>
 </html>

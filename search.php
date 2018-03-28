@@ -198,6 +198,11 @@ foreach ($result3 as $row) {
 <div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
 <a href="setup.php" class="w3-button w3-indigo">Edit configuration</a>
 </div>
+
+<div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
+<a href="delete.php" class="w3-button w3-indigo">Delete record</a>
+</div>
+
 <?php
 echo "<div class=\"config\">Current configuration:</div>";
 echo "<div class=\"config\">Servername = $servername</div>";

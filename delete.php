@@ -218,16 +218,50 @@ foreach ($result3 as $row) {
 ?>
 </select>
 
-<input type="text" name="room2" size="15" placeholder="Raum" pattern="[0-9]{2,}" required>
-<input type="text" name="port2" size="15" placeholder="Port" pattern="[0-9]{3}" required>
-<input type="text" name="anschlusss2" size="15" placeholder="Anschluss" pattern="[0-9]{3}" required>
+<select name="room2">
+<?php
+foreach ($result2 as $row) {
+    $ding = $row['Anschluss'];
+    if (is_numeric($ding)) {
+        echo '<option value="' . $ding . '">' . $ding . '</option>';
+    }
+}
+?>
+</select>
+
+<select name="port2">
+<?php
+foreach ($result as $row) {
+    $ding = $row['Anschluss'];
+    if (is_numeric($ding)) {
+        echo '<option value="' . $ding . '">' . $ding . '</option>';
+    }
+}
+?>
+</select>
+
+</select>
+<select name="anschlusss2">
+<?php
+foreach ($result3 as $row) {
+    $ding = $row['Anschluss'];
+    if (is_numeric($ding) && ($ding > 0)) {
+        echo '<option value="' . $ding . '">' . $ding . '</option>';
+    }
+}
+?>
+</select>
 
 
 <div class="button" style="display: inline-block; text-align: right; width: 100%">
-  <button type="submit">Add a record</button>
+  <button type="submit">Delete record</button>
 </div>
 </form>
 <br>
+
+<div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
+<a href="add.php" class="w3-button w3-indigo">Add a record</a>
+</div>
 
 <div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
 <a href="search.php" class="w3-button w3-indigo">Search for record</a>
@@ -235,10 +269,6 @@ foreach ($result3 as $row) {
 
 <div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
 <a href="setup.php" class="w3-button w3-indigo">Edit configuration</a>
-</div>
-
-<div class="w3-container" style="display: inline-block; text-align: right; width: 100%">
-<a href="delete.php" class="w3-button w3-indigo">Delete record</a>
 </div>
 
 <?php
@@ -258,12 +288,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
     try {
-        $sql = "INSERT INTO devices (Anschluss, Ziel)
-        VALUES (?,?)";
+        $sql = "DELETE FROM devices WHERE Anschluss LIKE ? AND Ziel LIKE ?";
         
         $getresult = $conn->prepare($sql);
         $getresult->execute([$select, $select2]);
-        echo "<p1>Successfully added new record!</p1>";
+        echo "<p1>SQL DELETE query was sent successfully!</p1>";
         echo "<br>";
         echo "<p1>$select &rarr; $select2</p1>";
     }
