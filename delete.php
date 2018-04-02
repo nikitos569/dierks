@@ -1,3 +1,4 @@
+<?php include 'password_protect.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -272,6 +273,7 @@ foreach ($result3 as $row) {
 </div>
 
 <?php
+echo "<a href=\"./search.php?logout=1\" style=\"margin-left: 10px\" >Logout</a>";
 echo "<div class=\"config\">Current configuration:</div>";
 echo "<div class=\"config\">Servername = $servername</div>";
 echo "<div class=\"config\">username = $username</div>";

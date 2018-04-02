@@ -1,3 +1,4 @@
+<?php include 'password_protect.php';?>
 <!DOCTYPE HTML>  
 <html>
 <head>
@@ -23,6 +24,7 @@ $servername = $config['DB_HOST'];
 $username   = $config['DB_USERNAME'];
 //$password = $config['DB_PASSWORD'];
 $dbname     = $config['DB_DATABASE'];
+echo "<a href=\"./search.php?logout=1\" style=\"margin-left: 10px\" >Logout</a>";
 echo "<div class=\"config\">Current configuration:</div>";
 echo "<div class=\"config\">Servername = $servername</div>";
 echo "<div class=\"config\">Username = $username</div>";
