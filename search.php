@@ -252,17 +252,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (($pos1 !== FALSE) || ($pos2 !== FALSE) || ($pos3 !== FALSE) || ($pos4 !== FALSE)) {
             $pos5 = strpos($select, '1', 11);
             if ($pos5 === 11) {
-                
 				echo "<div style=\"text-align:center;\" class=\"select\">&rarr; $select </div>";
 				$select = substr_replace($select, 0, '11', 1);
-                //echo "replaced 1 with 0 <br>";
-                //echo $select;
             } else {
-                
 				echo "<div style=\"text-align:center;\" class=\"select\">&rarr; $select </div>";
 				$select = substr_replace($select, 1, '11', 1);
-                //echo "replaced 0 with 1 <br>";
-                //echo $select;
             }
             
         }
